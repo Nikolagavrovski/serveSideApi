@@ -25,3 +25,6 @@ Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
 Route::get('test', function(){
   return response([1,2,3,4], 200);
 });
+
+Route::get('/contacts','ContactsController@getContacts');
+Route::get('/conversation/{id}', 'ContactsController@getMessagesById');
