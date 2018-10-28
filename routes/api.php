@@ -28,3 +28,4 @@ Route::get('test', function(){
 
 Route::get('/contacts','ContactsController@getContacts');
 Route::get('/conversation/{id}', 'ContactsController@getMessagesById');
+Route::post('/conversation/send', 'ContactsController@send');
