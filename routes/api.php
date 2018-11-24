@@ -17,15 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//Test
+
+
 //Authentication and registertion
 Route::post('/login', 'AuthController@login');
 Route::post('/register', 'AuthController@register');
 Route::middleware('auth:api')->post('/logout', 'AuthController@logout');
 
-Route::get('test', function(){
-  return response([1,2,3,4], 200);
-});
+// Get all contacts 
+Route::get('/contacts/{id}','ContactsController@getContacts');
 
-Route::get('/contacts','ContactsController@getContacts');
+// Get converstion by ID
 Route::get('/conversation/{id}', 'ContactsController@getMessagesById');
+
+// Send conversation
 Route::post('/conversation/send', 'ContactsController@send');
+
+Route::get('/test', 'ContactsController@test');
